@@ -8,6 +8,8 @@ n=&n;
 while n>=i loop
 	if mod(n,i)=0 then
 		a=a+1;
+	end if;
+	i=i+1;
 	end loop;
 if a=2 then
 	dbms_output.put_line("Prime no");
