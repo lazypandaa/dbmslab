@@ -1,0 +1,41 @@
+create table class(id int(10),Name varchar(32));
+create table info(id int(10),addrs varchar(32));
+insert into class values(1,"sath");
+insert into class values(2,"ani");
+insert into class values(3,"banda");
+insert into info values(1,"mtm");
+insert into info values(2,"vdj");
+insert into info values(4,"hyd");
+
+select * from class,info where class.id=info.id;
+select * from class,info where class.id>info.id;
+select * from class cross join info;
+select * from class leftouter join info;
+select * from class rightouter join info;
+select * from class fullouter join info;
+
+
+-----------------------------------------------
+
+
+set serveroutputon
+declare
+create function fact(a in number)
+return number
+is/as
+	f number;
+	n number;
+	--i number:=1;
+begin
+n=&n;
+if n=0 then 
+	return 1;
+else 
+	fact = n*fact(n-1);
+end;
+begin
+n:=&n;
+f=fact(n);
+dbms_output.put_line("fact is "||f);
+end;
+/
